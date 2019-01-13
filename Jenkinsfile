@@ -4,7 +4,10 @@ node {
 }
 	stage('Build') {
                 sh 'mvn -B -DskipTests clean package'
-        }
+}
+	stage('Unit test') {
+                sh 'mvn test'
+}
 	stage('SonarQube analysis') { 
         withSonarQubeEnv('My SonarQube Server') { 
           sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
@@ -45,5 +48,8 @@ node {
     buildInfo.env.capture = true 
     buildInfo=server.upload(uploadSpec) 
     server.publishBuildInfo(buildInfo) 
+}
+	stage('Deploy jar') {
+                sh 'java -jar https://leonux123.jfrog.io/leonux123/bazinga-repo/my-app-1.0-SNAPSHOT.jar'
 }
     }

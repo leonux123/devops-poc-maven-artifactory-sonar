@@ -50,8 +50,6 @@ node {
     server.publishBuildInfo(buildInfo) 
 }
 stage('Deploy jar') {
-            steps {
-                bat './jenkins/scripts/deliver.sh'
-            }
+                sh './jenkins/scripts/deliver.sh'
     }
 }

@@ -49,7 +49,7 @@ node {
     buildInfo=server.upload(uploadSpec) 
     server.publishBuildInfo(buildInfo) 
 }
-stage('Deliver') {
+stage('Deploy jar') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }

@@ -33,7 +33,7 @@ node {
     "files": [
         {
             "pattern": "target/*.jar",
-            "target": "bazinga-repo/com/leonux123/jar/{1}/"
+            "target": "bazinga-repo/com/leonux123/jar/"
         }
       ]
     }

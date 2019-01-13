@@ -49,7 +49,7 @@ node {
     buildInfo=server.upload(uploadSpec) 
     server.publishBuildInfo(buildInfo) 
 }
-	stage('Deploy jar') {
+	stage('Deploy jar from Artifactory') {
                 sh 'java -jar https://leonux123.jfrog.io/leonux123/bazinga-repo/my-app-1.0-SNAPSHOT.jar'
 }
     }

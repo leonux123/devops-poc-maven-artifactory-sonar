@@ -51,7 +51,7 @@ node {
 }
 stage('Deploy jar') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                sh 'java -jar target/my-app-1.0-SNAPSHOT.jar'
             }
     }
 }

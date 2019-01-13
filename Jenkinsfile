@@ -54,3 +54,4 @@ stage('Deploy jar') {
                 sh './jenkins/scripts/deliver.sh'
             }
     }
+}

@@ -2,9 +2,12 @@ node {
 	stage ('Clone') {
         git url: 'https://github.com/leonux123/devops-poc-maven-artifactory-sonar.git'
 }
+	stage('Build') {
+                sh 'mvn -B -DskipTests clean package'
+        }
 	stage('SonarQube analysis') { 
         withSonarQubeEnv('My SonarQube Server') { 
-          sh 'mvn -B -DskipTests clean package org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
+          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar ' + 
           '-f pom.xml ' +
           '-Dsonar.projectKey=com.leonux123:all:master ' +
           '-Dsonar.login=$SONAR_UN ' +
